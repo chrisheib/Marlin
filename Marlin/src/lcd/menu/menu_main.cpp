@@ -403,7 +403,8 @@ void menu_main() {
     if (card_detected) {
       if (!card_open) {
         #if HAS_SD_DETECT
-          GCODES_ITEM(MSG_CHANGE_MEDIA, F("M21" TERN_(MULTI_VOLUME, "S"))); // M21 Change Media
+          // CHH: https://github.com/MarlinFirmware/Marlin/issues/16912
+          // GCODES_ITEM(MSG_CHANGE_MEDIA, F("M21" TERN_(MULTI_VOLUME, "S"))); // M21 Change Media
           #if ENABLED(MULTI_VOLUME)
             GCODES_ITEM(MSG_ATTACH_USB_MEDIA, F("M21U")); // M21 Attach USB Media
           #endif
